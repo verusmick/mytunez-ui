@@ -1,5 +1,21 @@
 <div class="songs-section">
-    <br>sticky element 1°
-    <br>sticky element
-    <br>sticky element last
+    <div class="row">
+        <button>Add Song</button>
+    </div>
+    <div class="songs-list row">
+        <div class="song-item">
+            <table style="width:100%">
+                <tr *ngFor="let song of songs">
+                    <td><img src="{{serverPath}}{{song.img_path}}" alt=""></td>
+                    <td>
+                        <p><b>{{song.title}}</b></p>
+                        <p>{{song.genre}}</p>
+                        <p>{{song.release_year}}</p>
+                        <p>{{song.album}}</p>
+                        <p>{{song.lenght}}asd</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </div>
