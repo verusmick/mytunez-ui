@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ArtistsService } from '../../service/artists.service'
+import { AppSettings } from '../../app.config'
 
 @Component({
   selector: 'app-artists-panel',
@@ -6,10 +8,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./artists-panel.component.scss']
 })
 export class ArtistsPanelComponent implements OnInit {
+  artists = [];
+  serverPath: string = AppSettings.API_ENDPOINT + 'src/artist/';
 
-  constructor() { }
+  constructor(private artistsService: ArtistsService) { }
 
-  ngOnInit(): void {
+  addArtist() {
+    console.log('addArtist');
   }
 
+  selectArtist(artist) {
+    console.log('selectArtist')
+    console.log(artist)
+  }
+
+  ngOnInit(): void {
+    this.artistsService.getArtists().subscribe((res: any) => {
+      this.artists = res.data.requests;
+      console.log(this.artists);
+    })
+  }
 }

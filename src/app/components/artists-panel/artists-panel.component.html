@@ -1,10 +1,22 @@
 <div class="artists-panel">
-    <div>
-        <ul>
-            <li>
-                <a href="/droplets?i=067492" id="ember755" class="fleetPathActive ember-view">Droplets </a>
-            </li>
-        </ul>
+    <div class="add-artist-section">
+        <button (click)="addArtist()">
+            ADD +
+        </button>
 
+    </div>
+
+    <div class="artists-list">
+        <div class="artists-item" *ngFor="let artist of artists" (click)="selectArtist(artist)">
+            <div class="img-content">
+                <img src="{{serverPath}}{{artist.img_path}}" alt="">
+            </div>
+            <div class="artist-details">
+                <p><b>{{artist.name}}</b></p>
+                <p>{{artist.genres}}</p>
+                <p>{{artist.members}}</p>
+                <p>{{artist.website}}</p>
+            </div>
+        </div>
     </div>
 </div>
