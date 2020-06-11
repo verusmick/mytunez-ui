@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges, EventEmitter, Output } from '@angular/core';
 import { SongsService } from '../../service/songs.service'
 import { AppSettings } from '../../app.config'
 
@@ -11,6 +11,8 @@ export class SongsPanelComponent implements OnInit {
   songs = [];
   @Input() artist;
   serverPath: string = AppSettings.API_ENDPOINT + 'src/song/';
+  @Output()
+  songSelected: EventEmitter<object> = new EventEmitter<object>();
 
   constructor(private songsService: SongsService) { }
 
@@ -31,7 +33,8 @@ export class SongsPanelComponent implements OnInit {
   ngOnChanges(changes: SimpleChanges) {
     this.watchArtist(changes.artist);
   }
-  playSong(song) {
+
+  clickSong(song) {
     for (let i = 0; i < this.songs.length; i++) {
       if (song.song_id === this.songs[i].song_id) {
         this.songs[i].isPlaying = !song.isPlaying;
@@ -39,6 +42,30 @@ export class SongsPanelComponent implements OnInit {
         this.songs[i].isPlaying = false
       }
     }
+  }
+
+  playSong(song) {    
+    for (let i = 0; i < this.songs.length; i++) {
+      if (song.song_id === this.songs[i].song_id) {
+        this.songs[i].isPlaying = !song.isPlaying;
+      } else {
+        this.songs[i].isPlaying = false
+      }
+    }
+
+    this.songSelected.emit({
+      songPath: this.serverPath + song.song_path,
+      play: true
+    });
+  }
+  stopSong() {    
+    for (let i = 0; i < this.songs.length; i++) {
+      this.songs[i].isPlaying = false
+    }
+    this.songSelected.emit({
+      songPath: '',
+      play: false
+    });
   }
 
   showPlayerIcon(event, song) {

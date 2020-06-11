@@ -6,8 +6,9 @@
         <div class="song-item">
             <table>
                 <tr *ngFor="let song of songs" (mouseover)="showPlayerIcon($event, song)" style="width:100%">
-                    <td (mouseout)="hidePlayerIcon($event, song)"><img src="{{serverPath}}{{song.img_path}}" alt=""></td>
-                    <td  (mouseout)="hidePlayerIcon($event, song)">
+                    <td (mouseout)="hidePlayerIcon($event, song)"><img src="{{serverPath}}{{song.img_path}}" alt="">
+                    </td>
+                    <td (mouseout)="hidePlayerIcon($event, song)">
                         <p><b>{{song.title}}</b></p>
                         <p>{{song.genre}}</p>
                         <p>{{song.release_year}}</p>
@@ -15,10 +16,11 @@
                         <p>{{song.lengthInMinutes}}</p>
                     </td>
                     <td style="width: 200px;">
-                        <div  *ngIf="song.hoverSong" style="width: 100px;">
-                            <i class="fa" [ngClass]="{'fa-play': song.isPlaying, 'fa-stop':!song.isPlaying}"
-                            (click)="playSong(song)" style="font-size: 24px;">
-                        </i>
+                        <div *ngIf="song.hoverSong" style="width: 100px;">              
+                            <i class="fa fa-play" (click)="playSong(song)" *ngIf="!song.isPlaying"
+                                style="font-size: 24px;"></i>
+                            <i class="fa fa-stop" (click)="stopSong()" style="font-size: 24px;" *ngIf="song.isPlaying">
+                            </i>
                         </div>
                     </td>
                 </tr>

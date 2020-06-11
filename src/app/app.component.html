@@ -1,8 +1,8 @@
 <div class="container-fluid">
-  <app-nav-player></app-nav-player>
+  <app-nav-player [songSelected]="statusMultimedia"></app-nav-player>
   <div class="row">
-    <app-artists-panel (artistSelected)="artistSelected = $event"></app-artists-panel>    
-    <app-songs-panel [artist] = "artistSelected"></app-songs-panel>
+    <app-artists-panel (artistSelected)="artistSelected = $event"></app-artists-panel>
+    <app-songs-panel [artist]="artistSelected" (songSelected)="statusMultimedia=$event"></app-songs-panel>
   </div>
 </div>
 <router-outlet></router-outlet>
