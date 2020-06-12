@@ -5,19 +5,42 @@
     width: 70%;
     height: 90%;
     overflow-y: auto;
-    margin: 10px;    
-    .row-title-section{
+    margin: 10px;
+    .row-title-section {
         margin: 10px;
-        .song-title-section{
+        .song-title-section {
             width: 75%;
         }
-        .add-song-section{
+        .add-song-section {
             width: 20%;
         }
-    }   
+    }
 
-    .songs-list{
+    .songs-list {
         margin: 20px;
-        background-color: #104477;
+        tr {
+            border-width: 1px;
+            border-style: solid;
+            border-color: #031b4d;
+            p {
+                margin-bottom: 3px;
+            }
+            .song-details {
+                width: 80%;
+                padding-left: 10px;
+            }
+            .td-img {
+                img {
+                    width: 100px;
+                }
+            }
+            .td-icon {
+                text-align: center;
+                width: 200px;
+                i {
+                    width: 100px;
+                }
+            }
+        }
     }
 }

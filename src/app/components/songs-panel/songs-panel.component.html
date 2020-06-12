@@ -1,7 +1,7 @@
 <div class="songs-section">
     <div class="row row-title-section">
         <div class="song-title-section">
-            <h2 *ngIf="currentArtist"><strong>{{currentArtist.name}}</strong> Playlist</h2> 
+            <h2 *ngIf="currentArtist"><strong>{{currentArtist.name}}</strong> Playlist</h2>
         </div>
         <div class="add-song-section">
             <app-add-song-modal (newSong)="addSong($event)" *ngIf="currentArtist"></app-add-song-modal>
@@ -11,17 +11,18 @@
         <div class="song-item">
             <table>
                 <tr *ngFor="let song of songs" (mouseover)="showPlayerIcon($event, song)" style="width:100%">
-                    <td (mouseout)="hidePlayerIcon($event, song)"><img src="{{serverPath}}{{song.img_path}}" alt="">
+                    <td (mouseout)="hidePlayerIcon($event, song)" class="td-img">
+                        <img src="{{serverPath}}{{song.img_path}}" alt="">
                     </td>
-                    <td (mouseout)="hidePlayerIcon($event, song)">
+                    <td (mouseout)="hidePlayerIcon($event, song)" class="song-details">
                         <p><b>{{song.title}}</b></p>
-                        <p>{{song.genre}}</p>
-                        <p>{{song.release_year}}</p>
-                        <p>{{song.album}}</p>
+                        <p><i style="font-size: 12px;">{{song.genre}}</i> </p>
+                        <p style="font-size: 14px;"> <b>Año de lanzamiento:</b> {{song.release_year}}</p>
+                        <p style="font-size: 14px;"><b>Album:</b> {{song.album}}</p>
                         <!-- <p>{{song.lengthInMinutes}}</p> -->
                     </td>
-                    <td style="width: 200px;">
-                        <div *ngIf="song.hoverSong" style="width: 100px;">
+                    <td class="td-icon">
+                        <div *ngIf="song.hoverSong">
                             <i class="fa fa-play" (click)="playSong(song)" *ngIf="!song.isPlaying"
                                 style="font-size: 24px;"></i>
                             <i class="fa fa-stop" (click)="stopSong()" style="font-size: 24px;" *ngIf="song.isPlaying">
