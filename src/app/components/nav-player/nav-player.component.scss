@@ -1,13 +1,22 @@
 .nav-player {
     position: fixed;
-    background-color: #9f9fdb;
+    background-color: #031b4d;
     width: 100%;
     height: 10%;
     .logo {
-        width: 30%;
-        background-color: red;
+        width: 30%;        
+        border-width: 1px;
+        border-style: solid;
+        border-color: #04081d;
         h1 {
             text-align: center;
+            color: white;
+            padding-top: 10px;
         }
+    }
+    .media-content{
+        width: 70%;
+        text-align: center;
+        padding-top: 5px;
     }
 }
