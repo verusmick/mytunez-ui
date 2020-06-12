@@ -48,13 +48,13 @@ export class NavPlayerComponent implements OnInit {
   }
 
   watchSongSelected(songSelected) {
-    if (songSelected.play) {
+    if (songSelected && songSelected.play) {
       this.src = songSelected.songPath;
     } else {
       this.src = '';
     }
     setTimeout(() => {
-      songSelected.play ? this.play() : this.pause();
+      songSelected && songSelected.play ? this.play() : this.pause();
     }, 200)
   }
 

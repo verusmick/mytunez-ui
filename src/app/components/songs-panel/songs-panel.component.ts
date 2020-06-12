@@ -25,15 +25,17 @@ export class SongsPanelComponent implements OnInit {
   }
 
   getSongs(artist) {
-    this.songsService.getSongs(artist.artist_id).subscribe((res: any) => {
-      let songsList = res.data.requests;
-      for (let i = 0; i < songsList.length; i++) {
-        songsList[i]['isPlaying'] = false;
-        songsList[i]['lengthInMinutes'] = Math.floor(songsList[i]['length'] / 60);
-        songsList[i]['hoverSong'] = false;
-      }
-      this.songs = songsList
-    })
+    if(artist){
+      this.songsService.getSongs(artist.artist_id).subscribe((res: any) => {
+        let songsList = res.data.requests;
+        for (let i = 0; i < songsList.length; i++) {
+          songsList[i]['isPlaying'] = false;
+          songsList[i]['lengthInMinutes'] = Math.floor(songsList[i]['length'] / 60);
+          songsList[i]['hoverSong'] = false;
+        }
+        this.songs = songsList
+      })
+    }    
   }
 
   ngOnChanges(changes: SimpleChanges) {
