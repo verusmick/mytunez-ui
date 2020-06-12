@@ -28,6 +28,9 @@ export class ArtistsPanelComponent implements OnInit {
   getArtists() {
     this.artistsService.getArtists().subscribe((res: any) => {
       this.artists = res.data.requests;
+      if(this.artists.length > 0){
+        this.selectArtist(this.artists[0]);
+      }
     })
   }
 

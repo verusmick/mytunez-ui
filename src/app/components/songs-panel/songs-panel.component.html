@@ -1,5 +1,6 @@
 <div class="songs-section">
     <div class="row">
+        <h2 *ngIf="currentArtist"><strong>{{currentArtist.name}}</strong> Playlist</h2> 
         <app-add-song-modal (newSong)="addSong($event)" *ngIf="currentArtist"></app-add-song-modal>
     </div>
     <div class="songs-list row">
@@ -25,6 +26,9 @@
                     </td>
                 </tr>
             </table>
+            <div class="alert alert-warning" role="alert" *ngIf="songs?.length == 0 && currentArtist">
+                No Tiene ninguna cancion agregada para el Artista : {{currentArtist.name}}
+            </div>
         </div>
     </div>
 </div>

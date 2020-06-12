@@ -14,5 +14,8 @@
                 <p>{{artist.website}}</p>
             </div>
         </div>
+        <div class="alert alert-warning" role="alert" *ngIf="artists?.length == 0">
+            <strong>Ops!</strong> No Tiene Ningun artista Agregado
+        </div>
     </div>
 </div>
