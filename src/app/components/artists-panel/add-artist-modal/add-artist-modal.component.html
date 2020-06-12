@@ -1,15 +1,14 @@
-<button class="btn btn-lg btn-outline-primary" (click)="openModal(newArtistModal)">Open My Modal</button>
-
+<button class="btn btn-lg btn-outline-primary" (click)="openModal(newArtistModal)">Añadir Artista</button>
 <ng-template #newArtistModal let-modal>
     <div class="modal-header">
-        <h5 class="modal-title" id="editProfileLabel">Crear Artista</h5>
+        <h5 class="modal-title" id="editArtistForm">Crear Artista</h5>
         <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
 
     <div class="modal-body">
-        <form [formGroup]="editProfileForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="editArtistForm" (ngSubmit)="onSubmit()">
             <div class="form-group row">
                 <label for="name" class="col-sm-4 col-form-label">Nombre*</label>
                 <div class="col-sm-8">
@@ -42,7 +41,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" (click)="modal.dismiss()">Close</button>
-                <button type="submit" class="btn btn-primary" [disabled]="!editProfileForm.valid">Save changes</button>
+                <button type="submit" class="btn btn-primary" [disabled]="!editArtistForm.valid">Save changes</button>
             </div>
         </form>
     </div>

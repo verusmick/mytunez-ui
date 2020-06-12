@@ -9,14 +9,14 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class AddArtistModalComponent implements OnInit {
   closeResult: string;
-  editProfileForm: FormGroup;
+  editArtistForm: FormGroup;
   file = { name: '' };
   @Output()
-  newArtist : EventEmitter<object> = new EventEmitter<object>();
+  newArtist: EventEmitter<object> = new EventEmitter<object>();
   constructor(private fb: FormBuilder, private modalService: NgbModal) { }
 
   ngOnInit(): void {
-    this.editProfileForm = this.fb.group({
+    this.editArtistForm = this.fb.group({
       name: new FormControl('', Validators.required),
       genres: new FormControl('', Validators.required),
       members: new FormControl('', Validators.required),
@@ -27,7 +27,7 @@ export class AddArtistModalComponent implements OnInit {
 
   onFileChange($event) {
     this.file = $event.target.files[0];
-    this.editProfileForm.controls['imageInput'].setValue(this.file ? this.file.name : '');
+    this.editArtistForm.controls['imageInput'].setValue(this.file ? this.file.name : '');
   }
 
   openModal(targetModal) {
@@ -36,16 +36,16 @@ export class AddArtistModalComponent implements OnInit {
       backdrop: 'static'
     });
 
-    this.editProfileForm.controls['name'].setValue('');
-    this.editProfileForm.controls['genres'].setValue('');
-    this.editProfileForm.controls['members'].setValue('');
-    this.editProfileForm.controls['website'].setValue('');
-    this.editProfileForm.controls['imageInput'].setValue('');
+    this.editArtistForm.controls['name'].setValue('');
+    this.editArtistForm.controls['genres'].setValue('');
+    this.editArtistForm.controls['members'].setValue('');
+    this.editArtistForm.controls['website'].setValue('');
+    this.editArtistForm.controls['imageInput'].setValue('');
   }
 
   onSubmit() {
-    this.modalService.dismissAll();    
-    let parseArtist = this.editProfileForm.getRawValue();
+    this.modalService.dismissAll();
+    let parseArtist = this.editArtistForm.getRawValue();
     parseArtist['imgFile'] = this.file;
     this.newArtist.emit(parseArtist);
   }

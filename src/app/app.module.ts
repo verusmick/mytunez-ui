@@ -15,6 +15,7 @@ import { SongsPanelComponent } from './components/songs-panel/songs-panel.compon
 import{ArtistsService} from './service/artists.service';
 import{SongsService} from './service/songs.service';
 import { AddArtistModalComponent } from './components/artists-panel/add-artist-modal/add-artist-modal.component';
+import { AddSongModalComponent } from './components/songs-panel/add-song-modal/add-song-modal.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AddArtistModalComponent } from './components/artists-panel/add-artist-m
     NavPlayerComponent,
     ArtistsPanelComponent,
     SongsPanelComponent,
-    AddArtistModalComponent
+    AddArtistModalComponent,
+    AddSongModalComponent
   ],
   imports: [
     BrowserModule,

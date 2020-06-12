@@ -1,6 +1,6 @@
 <div class="songs-section">
     <div class="row">
-        <button>Add Song</button>
+        <app-add-song-modal (newSong)="addSong($event)" *ngIf="currentArtist"></app-add-song-modal>
     </div>
     <div class="songs-list row">
         <div class="song-item">
@@ -16,7 +16,7 @@
                         <p>{{song.lengthInMinutes}}</p>
                     </td>
                     <td style="width: 200px;">
-                        <div *ngIf="song.hoverSong" style="width: 100px;">              
+                        <div *ngIf="song.hoverSong" style="width: 100px;">
                             <i class="fa fa-play" (click)="playSong(song)" *ngIf="!song.isPlaying"
                                 style="font-size: 24px;"></i>
                             <i class="fa fa-stop" (click)="stopSong()" style="font-size: 24px;" *ngIf="song.isPlaying">
