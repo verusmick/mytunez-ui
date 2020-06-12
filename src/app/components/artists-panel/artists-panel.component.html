@@ -1,11 +1,7 @@
 <div class="artists-panel">
     <div class="add-artist-section">
-        <button (click)="addArtist()">
-            ADD +
-        </button>
-
+        <app-add-artist-modal (newArtist)="addArtist($event)"></app-add-artist-modal>
     </div>
-
     <div class="artists-list">
         <div class="artists-item" *ngFor="let artist of artists" (click)="selectArtist(artist)">
             <div class="img-content">

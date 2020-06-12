@@ -9,7 +9,10 @@ export class ArtistsService {
 
   constructor(private http: HttpClient) { }
 
-  getArtists(){
-    return this.http.get(AppSettings.API_ENDPOINT+'artists');
+  getArtists() {
+    return this.http.get(AppSettings.API_ENDPOINT + 'artists');
+  }
+  postArtist(newArtist:any) {
+    return this.http.post(AppSettings.API_ENDPOINT + 'artists', newArtist);
   }
 }
