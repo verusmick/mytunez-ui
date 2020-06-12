@@ -55,19 +55,10 @@ export class AddSongModalComponent implements OnInit {
 
   onSubmit() {
     this.modalService.dismissAll();
-    let parseArtist = this.editSongForm.getRawValue();    
+    let parseArtist = this.editSongForm.getRawValue();
     parseArtist['imgFile'] = this.fileImg;
     parseArtist['songFile'] = this.fileSong;
-
-    var reader = new FileReader();
-    reader.onload =  (event: any) => {
-      var audioContext = new window.AudioContext();
-      audioContext.decodeAudioData(event.target.result, (buffer) =>{
-        parseArtist['lenght'] = buffer.duration;
-        console.log('--->', parseArtist);
-        this.newSong.emit(parseArtist)
-      });
-    };
-    reader.readAsArrayBuffer(parseArtist['songFile']);
+    parseArtist['lenght'] = '2';
+    this.newSong.emit(parseArtist)
   }
 }

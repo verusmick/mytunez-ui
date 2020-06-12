@@ -33,7 +33,9 @@ export class SongsPanelComponent implements OnInit {
           songsList[i]['lengthInMinutes'] = Math.floor(songsList[i]['length'] / 60);
           songsList[i]['hoverSong'] = false;
         }
-        this.songs = songsList
+        setTimeout(()=>{
+          this.songs = songsList
+        },100)        
       })
     }    
   }
@@ -95,7 +97,7 @@ export class SongsPanelComponent implements OnInit {
     newSongformData.append("album", event.album);
     newSongformData.append("artistId", this.currentArtist.artist_id + '');
     newSongformData.append("lenght", event.lenght);
-    this.songsService.postSong(newSongformData).subscribe((res: any) => {
+    this.songsService.postSong(newSongformData).subscribe((res: any) => {      
       this.getSongs(this.currentArtist);
     })
   }
