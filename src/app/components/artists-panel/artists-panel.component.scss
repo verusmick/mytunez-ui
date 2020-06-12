@@ -1,26 +1,34 @@
 .artists-panel {
-    background-color: #8890a1;
+    background-color: #eff1f5;
     position: fixed;
     top: 10%;
     width: 30%;
     height: 90%;
     overflow-y: auto;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #031b4d;
     .add-artist-section {
         /*  */
-        color: green($color: #000000);
+        // color: green($color: #000000);
+        text-align: center;
+        padding: 2%;
     }
     .artists-list {
         .artists-item {
-            display: block;
+            border-top: 1px solid #031b4d;
+            cursor:pointer;
             .img-content {
-                float: left;
+                padding-left: 10px;
                 img {
-                    width: 122px;
+                    width: 150px;
                 }
             }
             .artist-details {
-                width: 45%;
-                float: left;
+                padding-left: 20px;
+                p {
+                    margin-bottom: 3px;
+                }
             }
         }
     }

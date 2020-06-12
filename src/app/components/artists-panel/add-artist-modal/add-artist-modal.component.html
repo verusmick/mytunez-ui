@@ -1,4 +1,4 @@
-<button class="btn btn-lg btn-outline-primary" (click)="openModal(newArtistModal)">Añadir Artista</button>
+<button class="btn btn-lg btn-outline-primary" (click)="openModal(newArtistModal)"> + Añadir Artista</button>
 <ng-template #newArtistModal let-modal>
     <div class="modal-header">
         <h5 class="modal-title" id="editArtistForm">Crear Artista</h5>
@@ -34,9 +34,9 @@
                 </div>
             </div>
             <div class="form-group form-inline">
-                <label class="btn btn-secondary btn-file">Browse
+                <label class="btn btn-secondary btn-file">Seleccionar Imagen
                     <input name="file" type="file" (change)="onFileChange($event)" accept="image/*">
-                    <input type="hidden" name="fileHidden" formControlName="imageInput" /> <!-- Validation Field -->
+                    <input type="hidden" name="fileHidden" formControlName="imageInput" />
                 </label>
             </div>
             <div class="modal-footer">

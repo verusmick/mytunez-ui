@@ -3,17 +3,23 @@
         <app-add-artist-modal (newArtist)="addArtist($event)"></app-add-artist-modal>
     </div>
     <div class="artists-list">
-        <div class="artists-item" *ngFor="let artist of artists" (click)="selectArtist(artist)">
-            <div class="img-content">
-                <img src="{{serverPath}}{{artist.img_path}}" alt="">
-            </div>
-            <div class="artist-details">
-                <p><b>{{artist.name}}</b></p>
-                <p>{{artist.genres}}</p>
-                <p>{{artist.members}}</p>
-                <p>{{artist.website}}</p>
-            </div>
-        </div>
+        <table>
+            <tr *ngFor="let artist of artists" (click)="selectArtist(artist)" class="artists-item">
+                <td>
+                    <div class="img-content">
+                        <img src="{{serverPath}}{{artist.img_path}}" alt="">
+                    </div>
+                </td>
+                <td>
+                    <div class="artist-details">
+                        <p><b>{{artist.name}}</b></p>
+                        <p style="font-size: 12px;"><i>{{artist.genres}}</i></p>
+                        <p style="font-size: 14px;"> <b>Miembros:</b>{{artist.members}}</p>                        
+                        <a href="{{artist.website}}" target="_blank">{{artist.website}}</a>
+                    </div>                    
+                </td>
+            </tr>
+        </table>
         <div class="alert alert-warning" role="alert" *ngIf="artists?.length == 0">
             <strong>Ops!</strong> No Tiene Ningun artista Agregado
         </div>

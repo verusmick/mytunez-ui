@@ -1,7 +1,11 @@
 <div class="songs-section">
-    <div class="row">
-        <h2 *ngIf="currentArtist"><strong>{{currentArtist.name}}</strong> Playlist</h2> 
-        <app-add-song-modal (newSong)="addSong($event)" *ngIf="currentArtist"></app-add-song-modal>
+    <div class="row row-title-section">
+        <div class="song-title-section">
+            <h2 *ngIf="currentArtist"><strong>{{currentArtist.name}}</strong> Playlist</h2> 
+        </div>
+        <div class="add-song-section">
+            <app-add-song-modal (newSong)="addSong($event)" *ngIf="currentArtist"></app-add-song-modal>
+        </div>
     </div>
     <div class="songs-list row">
         <div class="song-item">
